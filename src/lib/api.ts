@@ -37,6 +37,18 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
+    // Surface API errors in console to speed up debugging (captures 4xx/5xx details)
+    if (error?.response || error?.config) {
+      const { config = {}, response = {} } = error;
+      console.error('API error', {
+        url: config.url,
+        method: config.method,
+        status: response.status,
+        statusText: response.statusText,
+        data: response.data,
+      });
+    }
+
     if (error.response?.status === 401) {
       // Token expired, try refresh
       const refreshToken = localStorage.getItem('refresh_token');
