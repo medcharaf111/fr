@@ -1414,8 +1414,8 @@ const GamifiedTestStep = ({ language, t }: { language: 'en' | 'ar', t: typeof tr
         >
           {language === 'ar' ? (
             <>
+              <ArrowLeft className="ml-2 h-5 w-5" />
               {t.test.previous}
-              <ArrowRight className="mr-2 h-5 w-5" />
             </>
           ) : (
             <>
@@ -1440,8 +1440,8 @@ const GamifiedTestStep = ({ language, t }: { language: 'en' | 'ar', t: typeof tr
           >
             {language === 'ar' ? (
               <>
-                <Award className="mr-2 h-5 w-5" />
                 {t.test.submit}
+                <Award className="mr-2 h-5 w-5" />
               </>
             ) : (
               <>
@@ -1459,8 +1459,8 @@ const GamifiedTestStep = ({ language, t }: { language: 'en' | 'ar', t: typeof tr
           >
             {language === 'ar' ? (
               <>
-                <ArrowLeft className="mr-2 h-5 w-5" />
                 Next Question
+                <ArrowRight className="mr-2 h-5 w-5" />
               </>
             ) : (
               <>
@@ -2662,8 +2662,8 @@ const MinisterDemo = () => {
           >
             {language === 'ar' ? (
               <>
+                <ArrowLeft className="ml-2 h-5 w-5" />
                 {t.previousStep}
-                <ArrowRight className="mr-2 h-5 w-5" />
               </>
             ) : (
               <>
@@ -2680,8 +2680,8 @@ const MinisterDemo = () => {
           >
             {language === 'ar' ? (
               <>
-                <ArrowLeft className="mr-2 h-5 w-5" />
                 {t.nextStep}
+                <ArrowRight className="mr-2 h-5 w-5" />
               </>
             ) : (
               <>
