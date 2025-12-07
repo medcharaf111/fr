@@ -1410,19 +1410,8 @@ const GamifiedTestStep = ({ language, t }: { language: 'en' | 'ar', t: typeof tr
           disabled={currentQuestion === 0}
           variant="outline"
           size="lg"
-          className="flex items-center"
         >
-          {language === 'ar' ? (
-            <>
-              <ArrowLeft className="ml-2 h-5 w-5" />
-              {t.test.previous}
-            </>
-          ) : (
-            <>
-              <ArrowLeft className="mr-2 h-5 w-5" />
-              {t.test.previous}
-            </>
-          )}
+          {t.test.previous}
         </Button>
 
         <div className="text-center">
@@ -1436,38 +1425,18 @@ const GamifiedTestStep = ({ language, t }: { language: 'en' | 'ar', t: typeof tr
           <Button
             onClick={handleNext}
             size="lg"
-            className="bg-gradient-to-r from-green-600 to-emerald-600 text-white flex items-center"
+            className="bg-gradient-to-r from-green-600 to-emerald-600 text-white"
           >
-            {language === 'ar' ? (
-              <>
-                {t.test.submit}
-                <Award className="mr-2 h-5 w-5" />
-              </>
-            ) : (
-              <>
-                {t.test.submit}
-                <Award className="ml-2 h-5 w-5" />
-              </>
-            )}
+            {t.test.submit}
           </Button>
         ) : (
           <Button
             onClick={handleNext}
             disabled={!showResult}
             size="lg"
-            className="bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center"
+            className="bg-gradient-to-r from-purple-600 to-pink-600 text-white"
           >
-            {language === 'ar' ? (
-              <>
-                Next Question
-                <ArrowRight className="mr-2 h-5 w-5" />
-              </>
-            ) : (
-              <>
-                Next Question
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </>
-            )}
+            Next Question
           </Button>
         )}
       </div>
@@ -2658,37 +2627,17 @@ const MinisterDemo = () => {
             disabled={currentStep === 1}
             variant="outline"
             size="lg"
-            className="px-8 flex items-center"
+            className="px-8"
           >
-            {language === 'ar' ? (
-              <>
-                <ArrowLeft className="ml-2 h-5 w-5" />
-                {t.previousStep}
-              </>
-            ) : (
-              <>
-                <ArrowLeft className="mr-2 h-5 w-5" />
-                {t.previousStep}
-              </>
-            )}
+            {t.previousStep}
           </Button>
           <Button
             onClick={handleNext}
             disabled={currentStep === DEMO_STEPS.length}
             size="lg"
-            className={`px-8 bg-gradient-to-r ${DEMO_STEPS[currentStep - 1].color} text-white hover:opacity-90 flex items-center`}
+            className={`px-8 bg-gradient-to-r ${DEMO_STEPS[currentStep - 1].color} text-white hover:opacity-90`}
           >
-            {language === 'ar' ? (
-              <>
-                {t.nextStep}
-                <ArrowRight className="mr-2 h-5 w-5" />
-              </>
-            ) : (
-              <>
-                {t.nextStep}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </>
-            )}
+            {t.nextStep}
           </Button>
         </div>
       </div>
