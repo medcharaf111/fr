@@ -1411,7 +1411,11 @@ const GamifiedTestStep = ({ language, t }: { language: 'en' | 'ar', t: typeof tr
           variant="outline"
           size="lg"
         >
-          <ArrowLeft className={`h-5 w-5 ${language === 'ar' ? 'ml-2' : 'mr-2'}`} />
+          {language === 'ar' ? (
+            <ArrowRight className="ml-2 h-5 w-5" />
+          ) : (
+            <ArrowLeft className="mr-2 h-5 w-5" />
+          )}
           {t.test.previous}
         </Button>
 
@@ -1439,7 +1443,11 @@ const GamifiedTestStep = ({ language, t }: { language: 'en' | 'ar', t: typeof tr
             className="bg-gradient-to-r from-purple-600 to-pink-600 text-white"
           >
             Next Question
-            <ArrowRight className="ml-2 h-5 w-5" />
+            {language === 'ar' ? (
+              <ArrowLeft className="mr-2 h-5 w-5" />
+            ) : (
+              <ArrowRight className="ml-2 h-5 w-5" />
+            )}
           </Button>
         )}
       </div>
@@ -2632,7 +2640,11 @@ const MinisterDemo = () => {
             size="lg"
             className="px-8"
           >
-            <ArrowLeft className={`h-5 w-5 ${language === 'ar' ? 'ml-2' : 'mr-2'}`} />
+            {language === 'ar' ? (
+              <ArrowRight className="ml-2 h-5 w-5" />
+            ) : (
+              <ArrowLeft className="mr-2 h-5 w-5" />
+            )}
             {t.previousStep}
           </Button>
           <Button
@@ -2642,7 +2654,11 @@ const MinisterDemo = () => {
             className={`px-8 bg-gradient-to-r ${DEMO_STEPS[currentStep - 1].color} text-white hover:opacity-90`}
           >
             {t.nextStep}
-            <ArrowRight className={`h-5 w-5 ${language === 'ar' ? 'mr-2' : 'ml-2'}`} />
+            {language === 'ar' ? (
+              <ArrowLeft className="mr-2 h-5 w-5" />
+            ) : (
+              <ArrowRight className="ml-2 h-5 w-5" />
+            )}
           </Button>
         </div>
       </div>
