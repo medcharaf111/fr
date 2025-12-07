@@ -1404,19 +1404,25 @@ const GamifiedTestStep = ({ language, t }: { language: 'en' | 'ar', t: typeof tr
       </Card>
 
       {/* Navigation */}
-      <div className="flex justify-between items-center">
+      <div className={`flex justify-between items-center ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
         <Button
           onClick={handlePrevious}
           disabled={currentQuestion === 0}
           variant="outline"
           size="lg"
+          className="flex items-center"
         >
           {language === 'ar' ? (
-            <ArrowRight className="ml-2 h-5 w-5" />
+            <>
+              {t.test.previous}
+              <ArrowRight className="mr-2 h-5 w-5" />
+            </>
           ) : (
-            <ArrowLeft className="mr-2 h-5 w-5" />
+            <>
+              <ArrowLeft className="mr-2 h-5 w-5" />
+              {t.test.previous}
+            </>
           )}
-          {t.test.previous}
         </Button>
 
         <div className="text-center">
@@ -1430,23 +1436,37 @@ const GamifiedTestStep = ({ language, t }: { language: 'en' | 'ar', t: typeof tr
           <Button
             onClick={handleNext}
             size="lg"
-            className="bg-gradient-to-r from-green-600 to-emerald-600 text-white"
+            className="bg-gradient-to-r from-green-600 to-emerald-600 text-white flex items-center"
           >
-            {t.test.submit}
-            <Award className={`h-5 w-5 ${language === 'ar' ? 'mr-2' : 'ml-2'}`} />
+            {language === 'ar' ? (
+              <>
+                <Award className="mr-2 h-5 w-5" />
+                {t.test.submit}
+              </>
+            ) : (
+              <>
+                {t.test.submit}
+                <Award className="ml-2 h-5 w-5" />
+              </>
+            )}
           </Button>
         ) : (
           <Button
             onClick={handleNext}
             disabled={!showResult}
             size="lg"
-            className="bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+            className="bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center"
           >
-            Next Question
             {language === 'ar' ? (
-              <ArrowLeft className="mr-2 h-5 w-5" />
+              <>
+                <ArrowLeft className="mr-2 h-5 w-5" />
+                Next Question
+              </>
             ) : (
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <>
+                Next Question
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </>
             )}
           </Button>
         )}
@@ -2632,32 +2652,42 @@ const MinisterDemo = () => {
         </Card>
 
         {/* Navigation Buttons */}
-        <div className="flex justify-between">
+        <div className={`flex justify-between ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
           <Button
             onClick={handlePrevious}
             disabled={currentStep === 1}
             variant="outline"
             size="lg"
-            className="px-8"
+            className="px-8 flex items-center"
           >
             {language === 'ar' ? (
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <>
+                {t.previousStep}
+                <ArrowRight className="mr-2 h-5 w-5" />
+              </>
             ) : (
-              <ArrowLeft className="mr-2 h-5 w-5" />
+              <>
+                <ArrowLeft className="mr-2 h-5 w-5" />
+                {t.previousStep}
+              </>
             )}
-            {t.previousStep}
           </Button>
           <Button
             onClick={handleNext}
             disabled={currentStep === DEMO_STEPS.length}
             size="lg"
-            className={`px-8 bg-gradient-to-r ${DEMO_STEPS[currentStep - 1].color} text-white hover:opacity-90`}
+            className={`px-8 bg-gradient-to-r ${DEMO_STEPS[currentStep - 1].color} text-white hover:opacity-90 flex items-center`}
           >
-            {t.nextStep}
             {language === 'ar' ? (
-              <ArrowLeft className="mr-2 h-5 w-5" />
+              <>
+                <ArrowLeft className="mr-2 h-5 w-5" />
+                {t.nextStep}
+              </>
             ) : (
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <>
+                {t.nextStep}
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </>
             )}
           </Button>
         </div>
